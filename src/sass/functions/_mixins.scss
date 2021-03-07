@@ -1,0 +1,51 @@
+
+
+@mixin border-radius($r) {
+  -webkit-border-radius: $r;
+  -moz-border-radius: $r;
+  -ms-border-radius: $r;
+  -o-border-radius: $r;
+  border-radius: $r;
+}
+
+@mixin box-shadow($shadow) {
+  -webkit-box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+  -ms-box-shadow: $shadow;
+  -o-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
+
+@mixin multi-box-shadow($shadow, $shadow2) {
+  -webkit-box-shadow: $shadow, $shadow2;
+  -moz-box-shadow: $shadow, $shadow2;
+  -ms-box-shadow: $shadow, $shadow2;
+  -o-box-shadow: $shadow, $shadow2;
+  box-shadow: $shadow, $shadow2;
+}
+
+@mixin transition($tran) {
+  -webkit-transition: $tran;
+  -moz-transition: $tran;
+  -ms-transition: $tran;
+  -o-transition: $tran;
+  transition: $tran;
+}
+
+@mixin transform($tran) {
+  -webkit-transform: $tran;
+  -moz-transform: $tran;
+  -ms-transform: $tran;
+  -o-transform: $tran;
+  transform: $tran;
+}
+
+@mixin linearGradientVert($dir: bottom, $from: #ffffff, $to: #ffffff) {
+  @include filter-gradient($from, $to, vertical); // IE6-9
+  @include background-image(linear-gradient(to $dir, $from 0%,$to 100%));
+}
+
+@mixin linearGradientHorz($dir: bottom, $from: #ffffff, $to: #ffffff) {
+  @include filter-gradient($from, $to, horizontal); // IE6-9
+  @include background-image(linear-gradient(to $dir, $from 0%,$to 100%));
+}

@@ -1,0 +1,472 @@
+html {
+  min-height: 100vh;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  line-height: 1.2;
+  color: $black;
+  overflow-x: auto;
+  
+  font-family: "PingFangTC", "Noto Sans", "Microsoft JhengHei", "微軟正黑體", "Lucida Sans Unicode", "STHeitiTC-Light", "Microsoft YaHei", "微软雅黑", "新細明體", Arial, sans-serif;
+
+  &.page-lock {
+    min-height: 0%;
+    height: 100%;
+    position: static;
+    overflow: hidden !important;
+    -webkit-overflow-scrolling: unset;
+    
+    #app {
+      -webkit-overflow-scrolling: unset;
+    }
+  }
+
+  &.has-modal {
+    overflow: hidden;
+    #app {
+      overflow: hidden;
+      & > div {
+        overflow: hidden;
+      }
+    }
+    .scroll-lock {
+      overflow: hidden;
+    }
+    .scroll-lock-content {
+      display: none;
+    }
+  }
+
+  
+  @media only screen and (device-width : 375px) and (device-height : 812px) and (-webkit-device-pixel-ratio : 3) {
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "PingFangTC", "Noto Sans", "Microsoft JhengHei", "微軟正黑體", "Lucida Sans Unicode", "STHeitiTC-Light", "Microsoft YaHei", "微软雅黑", "新細明體", Arial, sans-serif;
+}
+
+.text-thin {
+  font-weight: 400 !important;
+}
+.text-bold {
+  font-weight: 600 !important;
+}
+.text-link {
+  text-decoration: none !important;
+}
+.text-lightgreen {
+  color: #cceed8;
+}
+
+.text-insBlue {
+  color: #007AB1 !important;
+}
+.text-black {
+  color: $black !important;
+}
+.text-red {
+  color: $red !important;
+}
+.text-blue {
+  color: $blue !important;
+}
+.text-deepblue {
+  color: rgb(20, 66, 196) !important;
+}
+.text-yellow {
+  color: $yellow !important;
+}
+.text-orange {
+  color: $orange !important;
+}
+
+.text-underline {
+  text-decoration: underline !important;
+}
+
+[role="button"] {
+  cursor: pointer;
+}
+
+.pointer-cursor {
+  cursor: pointer;
+}
+
+.line-height-2 {
+  line-height: 2;
+}
+
+.line-height-26px {
+  line-height: 26px;
+}
+
+#app {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  
+  > div > header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+  }
+
+  > div > main {
+    padding-top: 80px;
+    flex: 1;
+  }
+}
+
+.container-fluid,
+.container {
+  padding-left: 20px;
+  padding-right: 20px;
+  // padding-bottom: 20px;
+}
+
+.container-fluid {
+  max-width: 1280px !important;
+}
+
+.section-loading {
+  position: relative;
+  > * {
+    opacity: .08 !important;
+  }
+}
+
+.section-loading::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(/crm/assets/common/ajax-loader.gif);
+  background-repeat: no-repeat;
+  background-position: center;
+  // background-color: rgba(255,255,255,.8);
+}
+
+// 解決部分瀏覽器字會遮到的問題。
+input, select,
+.form-control {
+  font-size: 13px ;
+  line-height: 1 !important;
+}
+
+select.form-control::-ms-expand,
+select::-ms-expand {
+  margin-right: -2px;
+  border:none !important;
+  background:#fff !important;
+  background-image:none !important;
+}
+
+.row {
+  margin-right: -10px;
+  margin-left: -10px;
+
+  &.with-divider > div[class*="col-"]:first-child:after {
+    content: '';
+    position: absolute;
+    top: -40px;
+    right: 0;
+    width: 1px;
+    height: 100%;
+    display: block;
+    
+  }
+}
+
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col, .col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm, .col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md, .col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg, .col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl, .col-xl-auto {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.action {
+  .btn:first-child {
+    margin-left: 0;
+  }
+  .btn:last-child {
+    margin-right: 0;
+  }
+}
+
+
+.collapse-item {
+  display: table;
+  white-space: nowrap;
+  height: auto;
+  margin: '';
+  line-height: 1;
+  text-align: center;
+  padding: 9px 20px;
+  
+  &:before,
+  &:after {
+    content: '';
+    display: table-cell;
+    position: relative;
+    top: 50%;
+    width: 50%;
+    background-repeat: no-repeat !important;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAWQAAAABCAYAAADpVdR9AAAABGdBTUEAALGPC/xhBQAAACFJREFUOBFjZOm3+s8wCkZDYDQERkNgNAQGNAQYGRgvAgAHTwKhJg2blAAAAABJRU5ErkJggg==);
+  }
+
+  &:before {
+    background-position: right 1em top 50%;
+  }
+  &:after {
+    background-position: left 1em top 50%;
+  }
+}
+
+.gray-block {
+ 
+  padding: 9px 20px;
+  text-align: center;
+}
+
+#gotop {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  text-align: center;
+  display: block;
+  width: 60px;
+  height: 60px;
+  padding: 10px 10px;
+  color: #FFFFFF;
+  background: rgba(0,0,0, .7);
+  @include border-radius(8px);
+  
+  @include transition(transform .3s ease);
+
+  // &.is-show {
+   
+  // }
+  
+  > .icon {
+    transform: rotate(90deg);
+    margin-bottom: 3px;
+  }
+}
+
+.bg-white {
+  background: #FFF !important;
+}
+// .bg-lightgreen {
+ 
+// }
+
+.loading {
+  position: absolute;
+  left: 0; right: 0;
+  top: 0; bottom: 0;
+  margin: auto;
+  width: 75px;
+  height: 75px;
+  background: rgba(0,0,0,.8);
+  border-radius: 20px;
+  > img {
+    width: 100%;
+  }
+}
+
+.embed-responsive {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+
+  &::before {
+    display: block;
+    content: "";
+    padding-top: 56.25%;
+  }
+
+  .embed-responsive-item,
+  embed,
+  iframe,
+  object,
+  video {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+}
+
+body {
+  &.modal-open {
+      bottom: 0;
+      left: 0;
+      position: fixed;
+      right: 0;
+      top: 0;
+  }
+}
+
+.w-min-220 {
+  min-width: 220px;
+}
+.w-220 {
+  width: 220px;
+}
+
+.w-120 {
+  width: 220px;
+}
+
+main {
+  display: block;
+}
+
+.mt-4-5 {
+  margin-top: 1.25rem !important;
+}
+.mb-4-5 {
+  margin-bottom: 1.25rem !important;
+}
+.ml-4-5 {
+  margin-left: 1.25rem !important;
+}
+.mr-4-5 {
+  margin-right: 1.25rem !important;
+}
+
+.mt-line {
+  margin-top: 0.625rem !important;
+}
+
+.ml-line {
+  margin-left: 0.625rem !important;
+}
+.mr-line {
+  margin-right: 0.625rem !important;
+}
+.mb-line {
+  margin-bottom: 0.625rem !important;
+}
+
+h4 > span.sub-h4 {
+  color: #323a45;
+  font-size: 16px;
+}
+.sub-ol ol{
+  counter-reset: list;
+  list-style: none;
+}
+.sub-ol ol li {
+  list-style-position: inside;
+  text-indent: -1em;
+  padding-left: 1em;
+}
+.sub-ol ol > li:before{
+  counter-increment: list;
+  content: "(" counter(list, decimal) ")";
+}
+
+.send-modal-body {
+  line-height: 1.5;
+}
+
+.font-size-13 {
+  font-size: 13px;
+}
+
+.aaa-background {
+  background: yellow;
+}
+
+.bbb-background {
+  background: green !important;
+}
+
+.modal .modal-body {
+  -webkit-overflow-scrolling: unset !important;
+
+}
+
+.area-list-datatable {
+  th,td {
+    font-size: 0.9rem !important;
+  }
+
+  button.btn, .btn {
+    padding: 3px 10px;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (orientation: portrait) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+    html {
+      font-size: 12px;
+    }
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (orientation: landscape) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+    html {
+      font-size: 14px;
+    }
+}
+
+@media only screen 
+  and (min-device-width: 1366px) 
+  and (max-device-width: 1366px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+    html {
+      font-size: 16px;
+    }
+}
+.disable-gray {
+  background: gray !important;
+  opacity: 0.5;
+}
+
+
+.modal-backdoor {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 99%;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.4);
+  
+  &.is-opened {
+    display: block;
+  }
+}

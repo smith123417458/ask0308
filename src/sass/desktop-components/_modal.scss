@@ -1,0 +1,232 @@
+.modal.fade {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  top: 0;
+  left: 0;
+  background: none;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+
+  &.warning {
+    // padding-top: 10px;
+    
+    img {
+      float: left;
+    }
+    .text {
+      display: block;
+      padding-top: 5px;
+      margin: 0 0 20px 70px;
+    }
+    img,
+    .text {
+      vertical-align: middle;
+    }
+    .modal-body {
+      min-height: 0;
+    }
+  }
+
+  &.confirm .modal-body {
+    min-height: 0;
+  }
+
+  &.has-backdoor {
+    height: 99%;
+    width: 100%;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: auto !important;
+  }
+
+  &:not(.has-backdoor):before {
+    content: '';
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    display: block;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    background: rgba(0,0,0,.6);
+    @include transition(opacity .3s ease .3s !important);
+  }
+
+  &.is-out {
+    &:before {
+      opacity: 0;
+    }
+
+    .modal-dialog {
+      opacity: 0;
+      transform: translate(0, 25%);
+    }
+  }
+
+  &.is-open {
+    display: block;
+
+    &:before {
+      opacity: 1;
+    }
+
+    .modal-dialog {
+      opacity: 1;
+      transform: translate(0, 0%);
+    }
+  }
+
+  .modal-dialog {
+    position: relative;
+    width: 800px;
+    max-width: none;
+    opacity: 0;
+    @include transition(all .3s ease .5s !important);
+
+    &.modal-lg {
+      width: 900px;
+    }
+    &.modal-sm {
+      width: 640px;
+      margin: 20% auto;
+    }
+
+    .modal-content {
+      margin: 10px auto 0px;
+      @include border-radius(12px);
+    }
+  }
+
+  .modal-body {
+    min-height: 500px;
+    padding: 20px 40px;
+  }
+
+  .modal-header {
+    background: $bg-green;
+    padding: 23px 40px;
+    @include border-radius(12px 12px 0 0);
+
+    .close {
+      position: absolute;
+      font-size: 16px;
+      width: 24px;
+      height: 24px;
+      right: 0;
+      top: 0;
+      margin-right: -12px;
+      margin-top: -12px;
+      display: block;
+      color: #FFF;
+      text-align: center;
+      line-height: 24px;
+      padding: 0;
+      background: $dark-gray;
+      border: 1px solid #FFF;
+      @include border-radius(12px);
+      @include box-shadow(0 0 4px 0 rgba(0,0,0,.8))
+    }
+
+    .modal-title {
+      color: $tree;
+      margin: 0 auto 0 0;
+    }
+  }
+
+  .pdf-preview {
+    width: 100%;
+    height: 420px;
+    border: 1px solid $light-gray;
+  }
+
+  .maintain {
+    max-height: 400px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+#group-modal {
+  .modal-body {
+    padding-top: 40px;
+    .action {
+      margin-top: 20px;
+    }
+  }
+}
+
+#new-record-modal {
+  .mx-datepicker .mx-input-wrapper {
+    padding-right: 30px;
+    input.mx-input {
+      margin-right: 30px;
+    }
+
+    .with-date-picker {
+      line-height: 40px;
+    }
+  }
+
+  .dropdown-menu.common-tag {
+    padding: 20px 40px;
+    width: 248px;
+    left: -153%;
+    right: 0;
+    top: -23px;
+  }
+
+  .btn-grids {
+    margin-left: -8px;
+    margin-right: -8px;
+    margin-top: 15px;
+    .btn {
+      position: relative;
+      width: calc(25% - 16px);
+      padding: 0;
+      margin: 0 8px 15px;
+
+      &.add-new {
+        width: auto;
+      }
+
+      > [role="button"] {
+        padding: 9px 24px;
+      }
+
+      .close {
+        position: absolute;
+        right: -10px;
+        top: -10px;
+      }
+      &.is-edit {
+        position: relative;
+        border: 0;
+        box-shadow: none;
+        background: none;
+        padding: 0;
+      }
+
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .modal.fade {
+    .modal-dialog.modal-sm,
+    .modal-dialog {
+      max-width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+      .modal-content {
+        width: calc(100% - 20px);
+        
+        .modal-body {
+          padding: 20px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,234 @@
+ul.nav.nav-tabs {
+  background: $primary;
+  padding: 2px;
+  margin: 0;
+
+  > li.nav-item {
+    a.nav-link {
+      cursor: pointer;
+      text-align: center;
+      color: $white;
+      @include border-radius(4px);
+    }
+    &.active > a.nav-link {
+      color: $link;
+      background: $white;
+    }
+  }
+
+  &.justify {
+    > li.nav-item {
+      flex: 1;
+    }
+  }
+}
+
+.tab-content {
+  .tab-pane {
+    display: none;
+    padding: 20px 40px;
+    background: #FFF;
+    @include box-shadow(0px 2px 6px 0 transparentize($tree, .8));
+
+    > .row.with-divider {
+      > div[class*="col-"]:first-child {
+        padding-right: 40px;
+      }
+      > div[class*='col-']:last-child {
+        padding-left: 40px;
+      }
+    }
+
+    &.active {
+      display: block;
+    }
+  }
+}
+
+.tab-header {
+  position: relative;
+  padding-top: 20px;
+  border-bottom:1px solid $primary;
+  z-index: 19;
+
+  ul.nav.nav-tabs {
+    background: none;
+    padding: 0;
+    margin-bottom: -1px;
+    border-bottom:1px solid $primary;
+
+    &.narrow > li.nav-item > a.nav-link {
+      padding: 9px 25px !important;
+    }
+
+    li.nav-item {
+      position: relative;
+      z-index: 9;
+      border-bottom: 0;
+      
+      a.nav-link:link,
+      .nav-link {
+        font-size: 16px;
+        padding: 9px 30px;
+        margin: 0;
+        margin-right: 5px;
+        color: $black;
+        background: #F5F5F5;
+        text-decoration: none;
+        border: 1px solid #C2C4C7;
+        border-bottom: 1px solid $primary;
+        @include border-radius(8px 8px 0 0);
+      }
+
+      .disabled.nav-link {
+        color: $gray !important;
+      }
+
+      &.active.show,
+      &.active.nav-link {
+        border-bottom: 1px solid #FFF;
+      }
+
+      a.active.nav-link.show,
+      a.active.nav-link,
+      &.active.show > a.nav-link,
+      &.active > a.nav-link {
+        font-weight: 500;
+        color: $primary;
+        border: 1px solid $primary;
+        border-bottom: 1px solid #FFF;
+        background: #FFF;
+      }
+      
+      &.dropdown {
+        position: relative;
+
+        &.is-open > ul.dropdown-menu
+        button.nav-link:focus + ul.dropdown-menu {
+          display: block;
+        }
+
+        ul.dropdown-menu {
+          width: 240px;
+          padding: 10px 0;
+          margin: 0;
+          border: 1px solid $primary;
+          border-top: 0px; 
+          @include border-radius(0 0 8px 8px);
+          
+          li {
+            padding: 0;
+          }
+          
+          li.dropdown-header:hover,
+          li.dropdown-header:focus {
+            background: none;
+          }
+          li:not(.dropdown-header).active > a,
+          li:not(.dropdown-header).active > a:hover,
+          li:not(.dropdown-header).active > a:focus,
+          li:not(.dropdown-header) > a.active.show,
+          li:not(.dropdown-header) > a:hover,
+          li:not(.dropdown-header) > a:focus {
+            color: $black;
+            text-decoration: none;
+            background: $border-gray;
+          }
+          
+          li > .dropdown-title {
+            color: $tree;
+            padding: 9px 30px;
+            margin: 0;
+
+            + ul {
+              padding-left: 0;
+            }
+      
+          }
+
+          li > a.collapse-item {
+            position: relative;
+            padding: 9px 10px;
+            display: table;
+            width: 100%;
+            color: $tree;
+            > i {
+              position: relative;
+              display: inline-block;
+              margin: 0 5px 0 0;
+            }
+          }
+          li > a {
+            position: relative;
+            padding: 9px 30px;
+            display: block;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            color: $black;
+            
+            i {
+              position: absolute;
+              width: 5px;
+              height: 18px;
+              line-height: 18px;
+              display: block;
+              font-style: normal;
+              top: 0;
+              bottom: 0;
+              right: 0;
+              margin: auto 25px auto auto;
+            }
+          }
+        }
+        
+        .caret {
+          position: relative;
+          display: inline-block;
+
+          &:before,
+          &:after {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 0;
+            height: 0;
+            top: 0;
+            bottom: 0px;
+            margin: auto;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+          }
+
+          &:before {
+            margin-top: -17px;
+            border-bottom: 5px solid $black;
+            border-top: 5px solid transparent;
+          }
+          &:after {
+            border-top: 5px solid $black;
+            border-bottom: 5px solid transparent;
+          }
+        }
+
+        &.active.dropdown .caret {
+          &:before {
+            border-bottom: 5px solid $primary;
+          }
+          &:after {
+            border-top: 5px solid $primary;
+          }
+        }
+      }
+    }
+  }
+}
+
+.tab-content {
+  background: #FFF;
+  display: inline-block;
+  width: 100%;
+  .tab-pane {
+    @include box-shadow(0 0 0 0 rgba(0,0,0,0));
+  }
+}

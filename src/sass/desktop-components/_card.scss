@@ -1,0 +1,211 @@
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  
+  &.properties {
+    margin-left: -6px;
+    margin-right: -6px;
+    .card {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      border: 1px solid $primary;
+      margin: 10px 6px 20px;
+      padding: 0;
+      width: calc((100% / 7) - 12px);
+      background-image: linear-gradient(-180deg, #FFFFFF 2%, #F4F4F4 100%);
+      
+      &.is-active {
+        background: transparentize($tree, .85)
+      }
+      .property-value {
+        border-top: 1px dotted $light-gray;
+        padding: 8px 20px;
+      }
+      .property-name {
+        display: flex;
+        max-width: 100%;
+        align-content: center;
+        align-items: center;
+        align-self: center;
+        padding: 6px 25px;
+        word-break: break-all;
+        text-align: center;
+        min-height: 50px;
+      }
+    }
+  }
+
+  &.family {
+    margin-left: -20px;
+    margin-right: -20px;
+    display: flex;
+    flex-wrap: wrap;
+  
+    .card {
+      position: relative;
+      width: calc(25% - 40px);
+      margin: 20px;
+      display: flex;
+      flex-direction: column;
+      h3 {
+        font-weight: bold;
+      }
+      &.add {
+        text-align: center;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        .icon {
+          margin-bottom: 16px
+        }
+      }
+
+      .content {
+        display: block;
+        min-height: 1px;
+      }
+
+      .close {
+        position: absolute;
+        right: -12px;
+        top: -12px;
+        display: block;
+        width: 24px;
+        height: 24px;
+        text-align: center;
+        line-height: 22px;
+        color: white;
+        background: $dark-gray;
+        border: 2px solid #FFF;
+        @include border-radius(12px);
+        @include box-shadow(0 0 2px 0 rgba(0,0,0,.5));
+      }
+    }
+  }
+
+  .card {
+    padding: 10px 20px;
+    margin-bottom: 30px;
+    border: 1px solid $gray;
+    @include border-radius(8px);
+    @include box-shadow(0px 2px 2px 0px rgba(0,0,0,.15));
+
+    &.no-shadow {
+      @include box-shadow(0px 0px 0px 0px rgba(0,0,0,0));
+    }
+    h3 {
+      margin: 0 0 18px;
+      font-weight: 500;
+    }
+    
+    &.disabled {
+      color: $light-gray;
+      border-color: $disable-gray;
+      background: $disable-gray;
+    }
+    
+    .desc  {
+      &.role {
+        margin-bottom: 10px;
+        .text {
+          margin-left: 10px;
+          line-height: 40px;
+        }
+        img,
+        .text {
+          vertical-align: middle
+        }
+      }
+    }
+
+    &.filter-record {
+      padding: 10px;
+      .content {
+        padding: 0 5px 10px;
+        min-height: 120px;
+      }
+    }
+  }
+
+  &.new-insurance-type.four-card {
+    margin-top: 20px;
+    margin-left: -17px;
+    margin-right: -17px;
+    .card {
+      width: calc(25% - 34px);
+      margin-left: 17px;
+      margin-right: 17px;
+      margin-bottom: 30px;
+      align-content: center;
+      align-items: center;
+      padding-top: 24px;
+      padding-bottom: 24px;
+      background-image: linear-gradient(-180deg, #FFFFFF 2%, #F4F4F4 100%);
+      border: 1px solid $primary;
+      @include box-shadow(0 2px 1px 0 rgba(0,0,0,0.20));
+
+      h4 {
+        margin: 0;
+        font-weight: 400;
+      }
+
+      .content {
+        flex: 1;
+        display: flex;
+        align-content: center;
+        align-items: center;
+      }
+    }
+  }
+
+  &.two-card {
+    margin-left: -5px;
+    margin-right: -5px;
+    
+    &.button-grid > .disabled {
+      border: 1px solid $gray;
+    }
+    
+    .card {
+      display: flex;
+      flex-direction: column;
+      width: calc(50% - 10px);
+      margin: 0 5px 10px;
+      
+      .content {
+        -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+      }
+    }
+  }
+  &.four-card {
+    margin-left: -10px;
+    margin-right: -10px;
+    
+    .card {
+      display: flex;
+      flex-direction: column;
+      width: calc(25% - 20px);
+      margin: 0 10px 20px;
+      
+      .content {
+        -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+      }
+    }
+  }
+}
+
+
+@media all and (-ms-high-contrast:none){ 
+  *::-ms-backdrop, .cards.properties { 
+    display: block \0;
+    .card {
+      display: inline-block \0;
+      vertical-align: top \0;
+    }
+  }
+}

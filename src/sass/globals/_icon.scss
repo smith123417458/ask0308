@@ -1,0 +1,207 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('/crm/fonts/icomoon.eot?9ghx9x');
+  src:  url('/crm/fonts/icomoon.eot?9ghx9x#iefix') format('embedded-opentype'),
+    url('/crm/fonts/icomoon.ttf?9ghx9x') format('truetype'),
+    url('/crm/fonts/icomoon.woff?9ghx9x') format('woff'),
+    url('/crm/fonts/icomoon.svg?9ghx9x#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &.i-12 {
+    font-size: 12px !important;
+  }
+  &.i-16 {
+    font-size: 16px !important;
+  }
+  &.i-18 {
+    font-size: 18px !important;
+  }
+  &.i-20 {
+    font-size: 20px !important;
+  }
+  &.i-24 {
+    font-size: 24px !important;
+  }
+  &.i-30 {
+    font-size: 30px !important;
+  }
+  &.i-32 {
+    font-size: 32px !important;
+  }
+  &.i-36 {
+    font-size: 36px !important;
+  }
+  &.i-48 {
+    font-size: 48px !important;
+  }
+}
+
+.icon-play:before {
+  content: "\e91b";
+}
+.icon-more:before {
+  content: "\e91e";
+}
+.icon-ringtone:before {
+  content: "\e91c";
+}
+.icon-video:before {
+  content: "\e91d";
+}
+.icon-trashcan:before {
+  content: "\e91a";
+}
+.icon-attach:before {
+  content: "\e918";
+}
+.icon-forward:before {
+  content: "\e919";
+}
+.icon-home:before {
+  content: "\e916";
+}
+.icon-account:before {
+  content: "\e917";
+}
+.icon-arrow_up:before {
+  content: "\e900";
+}
+.icon-arrow_down:before {
+  content: "\e901";
+}
+.icon-add_new:before {
+  content: "\e902";
+}
+.icon-message:before {
+  content: "\e903";
+}
+.icon-menu:before {
+  content: "\e904";
+}
+.icon-back:before {
+  content: "\e905";
+}
+.icon-collapse_up:before {
+  content: "\e906";
+}
+.icon-collapse_down:before {
+  content: "\e907";
+}
+.icon-back_pc:before {
+  content: "\e908";
+}
+.icon-customer_service:before {
+  content: "\e909";
+}
+.icon-target_user:before {
+  content: "\e90a";
+}
+.icon-news:before {
+  content: "\e90b";
+}
+.icon-work_perform:before {
+  content: "\e90c";
+}
+.icon-search:before {
+  content: "\e90d";
+}
+.icon-close:before {
+  content: "\e90e";
+}
+.icon-edit:before {
+  content: "\e90f";
+}
+.icon-maps:before {
+  content: "\e910";
+}
+.icon-telephone:before {
+  content: "\e911";
+}
+.icon-mobile:before {
+  content: "\e912";
+}
+.icon-check:before {
+  content: "\e913";
+}
+.icon-open_as:before {
+  content: "\e914";
+}
+.icon-calendar:before {
+  content: "\e915";
+  position: absolute;
+  margin: -0.8rem 0 0 -3rem;
+  pointer-events: none;
+
+}
+
+.icon-facebook {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  @include background-retina('/crm/assets/common/facebook.png', '/crm/assets/common/facebook@2x.png',24px 24px);
+}
+
+.icon-valid {
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  @include background-retina('/crm/assets/common/valid.png', '/crm/assets/common/valid@2x.png',13px 13px);
+}
+.icon-line {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  @include background-retina('/crm/assets/common/line.png', '/crm/assets/common/line@2x.png',24px 24px);
+}
+.icon-tree {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  @include background-retina('/crm/assets/common/tree.png', '/crm/assets/common/tree@2x.png',50px 50px);
+}
+.icon-exit {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  @include background-retina('/crm/assets/common/exit.png', '/crm/assets/common/exit@2x.png',16px 16px);
+}
+.icon-building {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  @include background-retina('/crm/assets/common/building.png', '/crm/assets/common/building@2x.png',50px 50px);
+}
+.icon-car {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  @include background-retina('/crm/assets/common/car.png', '/crm/assets/common/car@2x.png',50px 50px);
+}
+.icon-fire {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  @include background-retina('/crm/assets/common/fire.png', '/crm/assets/common/fire@2x.png',50px 50px);
+}
+.icon-umbrella {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  @include background-retina('/crm/assets/common/umbrella.png', '/crm/assets/common/umbrella@2x.png',50px 50px);
+}

@@ -1,0 +1,527 @@
+.dataTables_wrapper {
+  width: 100%;
+  position: relative;
+  
+  .dataTables_processing {
+    padding: 0 !important;
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 42px);
+    left: 0; right: 0;
+    top: 0; bottom: 0;
+    margin: 42px auto 0;
+    z-index: 9;
+  }
+
+  .dataTables_info {
+    display: none;
+  }
+  
+  .dataTables_scrollHead .dataTables_scrollHeadInner {
+    table.datatable {
+      margin-bottom: 0;
+    }
+  }
+  
+  .dataTables_scrollBody {
+    margin-bottom: 20px;
+    border-top: 0;
+    background-size: 100% 80px;
+    background-image: linear-gradient(to bottom, $border-gray 0px, $border-gray 40px, transparent 40px, transparent 80px);
+    background-position: 0px 40px;
+    border: 1px solid $light-gray;
+    background-repeat: repeat-y;
+
+    table.datatable {
+      // min-height: 100%;
+      margin-bottom: 0;
+      // border: 0 !important;
+      thead {
+        tr {
+          height: 0;
+        }
+        tr > th {
+          height: 0;
+          padding: 0 !important;
+          &:after {
+            display: none !important;
+          }
+        }
+      }
+      tbody {
+        tr > td {
+          border-top: 0;
+          border-bottom: 0;
+
+          &[colspan] {
+            border: 0 !important;
+          }
+          &:first-child {
+            border-left: 0 !important;
+          }
+          &:last-child {
+            border-right: 0 !important;
+          }
+        }
+      }
+    }
+    .dataTables_empty {
+      color: transparent !important;
+    }
+  }
+}
+
+.row.row-tables {
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  display: table;
+  > * {
+    position: relative;
+    display: table-cell;
+  }
+  a.link {
+    display: inline-block;
+    max-width: 140px;
+    vertical-align: text-bottom;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .col-table {
+    width: 48% !important;
+  }
+  .col-split {
+    width: 50px;
+    position: relative;
+    color: transparentize($tree, .8)
+  }
+  .icon-forward {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    margin: auto;
+  }
+}
+
+.manager .newTable .table.datatable {
+  border: 0 !important;
+  
+  thead {
+    background: #E5F6EC;
+    color: #027A39;
+    border: 1px solid #53C480;
+
+    th.sorting:before,
+    th.sorting:after {
+      opacity: .3;
+    }
+
+    th.sorting.sorting_asc:before,
+    th.sorting.sorting_asc:after,
+    th.sorting.sorting_desc:before,
+    th.sorting.sorting_desc:after {
+      opacity: 1;
+    }
+    th.sorting.sorting_asc:after {
+      border-top-color: transparentize(#027A39, .9);
+    }
+    th.sorting.sorting_asc:before {
+      border-bottom-color: transparentize(#027A39, .5);
+    }
+
+    th.sorting.sorting_desc:before {
+      border-bottom-color: transparentize(#027A39, .9);
+    }
+    th.sorting.sorting_desc:after {
+      border-top-color: transparentize(#027A39, .5);
+    }
+  }
+  
+  tbody.block-height {
+    display: block;
+    height: 350px;
+    overflow-y: scroll;
+    border: 0 !important;
+    -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar {
+      width: 17px; 
+      border: 0;
+      box-shadow: none;
+    }
+    
+    &::-webkit-scrollbar-track
+    {
+      box-shadow: none;
+      border-radius: 0px;
+      border: 0;
+      background-color: #F5F5F5;
+    }
+
+    &::-webkit-scrollbar-thumb
+    {
+      width: 10px;
+      border-radius: 20px;
+      background-color: #555;
+    }
+
+  }
+}
+
+.insurance-row {
+  margin-left: -25px;
+  margin-right: -25px;
+}
+
+.dataTables_scrollBody > .table.datatable > thead > tr,
+.dataTables_scrollBody > .table.datatable > thead > tr > th {
+  height: 0 !important;
+}
+.dataTables_scrollBody {
+  border-width: 1px !important;
+}
+.dataTables_scrollBody > .table.datatable,
+.dataTables_scrollBody > .table.datatable > thead > tr,
+.dataTables_scrollBody > .table.datatable > thead > tr > th,
+.dataTables_scrollHead > .table.datatable {
+  border: 0 !important;
+}
+
+.table.datatable {
+  width: 100%;
+  // border: 1px solid $gray;
+  border-collapse: collapse;
+  margin: 0 0 5px;
+  background: #FFF;
+  border-top: 0px;
+
+  &.insurance-green tfoot,
+  &.insurance-green tfoot tr,
+  &.insurance-green tfoot > tr td,
+  &.insurance-green tfoot > tr th {
+    background: #FFF;
+  }
+
+  thead {
+    background: $primary;
+    color: #FFF;
+
+    tr > th {
+      text-align: left;
+      padding: 10px 10px;
+      border-right: 1px solid $light-gray;
+      vertical-align: middle;
+      
+      .checkbox {
+        vertical-align: middle;
+        input + label {
+          height: 20px;
+          line-height: 1;
+        }
+      }
+      &:first-child {
+        padding-left: 20px;
+      }
+      
+      &.sorting,
+      &.sorting_desc {
+        position: relative;
+        padding-right: 13px !important;
+        
+        &:before,
+        &:after {
+          content: '';
+          position: absolute;
+          width: 0px;
+          height: 0px;
+          display: block;
+          top: 0;
+          bottom: 0;
+          right: 3px;
+          margin: auto;
+        }
+
+        &:after {
+          top: 18px;
+          border-top: 6px solid transparentize($tree, .5);
+          border-left: 5px solid transparent;
+          border-right: 5px solid transparent;
+          border-bottom: 6px solid transparent;
+        }
+
+        &:before {
+          top: -13px;
+          border-bottom: 6px solid transparentize($tree, .5);
+          border-left: 5px solid transparent;
+          border-right: 5px solid transparent;
+          border-top: 6px solid transparent;
+        }
+      }
+
+      &.sorting_asc:before {
+        border-bottom: 6px solid transparentize(white, .5);
+      }
+
+      &.sorting_desc:after {
+        border-top: 6px solid transparentize(white, .5);
+      }
+
+      &.no-sort:before,
+      &.no-sort:after {
+        display: none;
+      }
+    }
+  }
+
+  tbody {
+    tr:nth-child(2n) {
+      background: $border-gray;
+    }
+
+    tr:last-child > td {
+       border-bottom: 1px solid $gray;
+    }
+
+    tr.table-warning {
+      background: transparentize($orange, .7);
+    }
+
+    tr > td {
+      text-align: left;
+      padding: 10px 10px;
+      vertical-align: middle;
+      font-size: 15px;
+      word-break: break-all;
+      border-top: 0;
+      border-left: 1px dotted $light-gray;
+      border-right: 1px dotted $light-gray;
+      border-bottom: 1px dotted $light-gray;
+      
+      &.dataTables_empty {
+        padding: 0 !important;
+        .empty-block {
+          color: $gray;
+        }
+      }
+
+      .checkbox {
+        vertical-align: middle;
+        input + label {
+          height: 20px;
+          line-height: 1;
+        }
+      }
+      .no {
+        vertical-align: middle;
+      }
+      .info {
+        position: relative;
+        float: right;
+        display: block;
+        text-align: center;
+        margin-left: 5px;
+        .lv {
+          position: absolute;
+          top: -15px;
+          left: -100%;
+          right: -100%;
+          margin: auto;
+        }
+        > img {
+          display: inline-block;
+          margin: 0 auto 1px;
+        }
+      }
+
+      &:first-child {
+        // padding-left: 20px;
+        // border-left: 1px solid $gray;
+        padding-top: 11px;
+      }
+      &:last-child {
+        border-right: 1px solid $gray;
+      }
+    }
+  }
+
+  tr.child-table {
+    display: none;
+    &.show {
+      width: 100%;
+      display: table-row;
+      &.onlySub {
+        background: rgb(236, 247, 238) !important;
+      }
+    }
+  }
+  tr.child-table.show > td,
+  tr.shown + tr > td {
+    padding: 0 !important;
+    table.table {
+      width: 100%;
+      border: 0;
+      border-collapse: collapse;
+
+      tr > td {
+        border-color: $border-gray;
+        padding: 9px 6px !important;
+
+        &.child {
+          padding-left: 30px !important;
+          background: url(/crm/assets/child-row@2x.png) no-repeat top 10px left 10px;
+          background-size: 12px 15px;
+        }
+
+        &.sub-child {
+          // padding-left: 30px !important;
+          background: url(/crm/assets/child-row@2x.png) no-repeat top 30px left 10px;
+          background-size: 12px 15px;
+        }
+      }
+    }
+  }
+}
+
+table.table {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid $light-gray;
+
+  tr > th,
+  tr > td {
+    padding: 10px;
+  }
+  
+  tbody {
+    tr:nth-child(2n) {
+      background: $border-gray;
+    }
+    tr:last-child > td {
+      border-bottom: 0;
+    }
+  }
+  
+  tr > td {
+    min-height: 38px;
+    border-bottom: 1px solid $light-gray;
+
+    &:first-child {
+      border-left: 0;
+    }
+    &:last-child {
+      border-right: 0;
+    }
+  }
+
+  &.insurance-green {
+    > thead {
+      > tr {
+        color: $tree;
+        border-top: 2px solid #53C480 !important;
+        border-left: 2px solid #53C480 !important;
+        border-right: 2px solid #53C480 !important;
+        border-bottom: 2px solid #53C480 !important;
+        background: #E5F6EC;
+      }
+      > tr > td {
+        // background: #FFF;
+        border-top: 1px solid $light-gray;
+        border-right: 1px solid $light-gray;
+        border-left: 1px dotted #53C480 !important;
+        border-bottom: 1px dotted #53C480 !important;
+      }
+      > tr > th {
+        text-align: left;
+        padding: 9px 6px !important;
+        border-left: 1px dotted #53C480 !important;
+        border-right: 1px dotted #53C480 !important;
+        border-bottom: 1px solid #53C480 !important;
+        font-size: 15px;
+        z-index: 9;
+        
+        &.sorting_asc:before {
+          border-bottom: 6px solid $tree !important;
+        }
+
+        &.sorting_desc:after {
+          border-top: 6px solid $tree !important;
+        }
+      }
+      
+    }
+    
+    tbody > tr > td {
+      min-height: 38px;
+      padding: 9px 6px ;
+    }
+  }
+
+ 
+  
+  &.table-basic {
+    tr {
+      background: #FFF !important;
+    }
+    tr > td {
+      small {
+        word-break: break-all;
+      }
+      border: 1px solid $light-gray !important;
+      border-bottom: 1px solid $light-gray !important;
+    }
+    tr > th {
+      text-align: right;
+      color: $tree;
+      border: 1px solid #53C480;
+      background: #E5F6EC;
+    }
+    > tr > th {
+      text-align: right;
+    }
+  }
+}
+
+.table-group {
+  margin-bottom: 20px;
+}
+
+
+table.table.insurance-green {
+  > tr {
+    border-top: 1px solid #53C480 !important;
+    border-left: 1px solid #53C480 !important;
+    border-right: 1px solid #53C480 !important;
+    border-bottom: 1px dotted #53C480 !important;
+  }
+  tr > td {
+    // background: #FFF;
+    padding: 14px 10px ;
+    border-top: 1px dotted $light-gray;
+    border-right: 1px dotted $light-gray;
+
+    table tr {
+      border: 0 !important;
+      > td {
+        border-left: 0;
+        border-bottom: 0;
+      }
+    }
+  }
+  tr > th {
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    padding: 9px 6px ;
+    border-left: 1px dotted #53C480 ;
+    border-right: 1px dotted #53C480 ;
+    border-bottom: 1px solid #53C480 ;
+    font-size: 15px;
+    z-index: 9;
+    background: #E5F6EC;
+  }
+}

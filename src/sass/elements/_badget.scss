@@ -1,0 +1,27 @@
+.badget {
+  display: inline-block;
+  vertical-align: bottom;
+  font-size: 16px;
+  min-width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  @include border-radius(20px);
+
+  &.orange {
+    color: #FFF;
+    background: $orange;
+  }
+}
+
+.list.badgets {
+  margin: 20px 0 10px;
+  .badget.gray.item {
+    padding: 0 22px;
+    color: $black;
+    background: $bg-gray;
+    @include border-radius(8px);
+    margin-right: 10px;
+    margin-top: 10px;
+  }
+}

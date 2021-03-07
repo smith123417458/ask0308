@@ -1,0 +1,133 @@
+.checkbox-list {
+  .radio,
+  .checkbox {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+.radio,
+.checkbox {
+  position: relative;
+
+  &.checkbox-inline,
+  &.radio-inline {
+    display: inline-block;
+    margin-right: 30px;
+  }
+
+  > input {
+    position: absolute;
+    opacity: 0;
+  }
+
+  > input + label {
+    padding-top: 0 !important;
+    padding-left: 30px;
+    height: 40px;
+    line-height: 40px;
+    color: $black;
+    display: block;
+
+    h4 {
+      margin: 0;
+      display: inline-block;
+    }
+  }
+
+  input:disabled + label:before {
+    border-color: $light-gray;
+  }
+
+  input:disabled + label:after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 22px;
+    height: 2px;
+    left: -1px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    transform: rotate(45deg);
+    background: $light-gray;
+  }
+  input:disabled:checked + label:before {
+    // background: $light-gray;
+    border: $light-gray;
+    color: $dark-gray;
+    line-height: 20px;
+  }
+
+  input + label:before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    border: 2px solid $light-gray;
+    background: #FFF;
+    @include border-radius(4px);
+  }
+
+
+  input:checked + label {
+    font-weight: 600;
+  }
+  
+  input:checked + label:before {
+    border-color: $orange;
+  }
+}
+
+.checkbox {
+  input:checked + label:before {
+    content: "\e913";
+    font-size: 16px;
+    display: inline-block;
+    line-height: 16px;
+    text-align: center;
+    font-family: icomoon;
+    color: $orange;
+  }
+}
+
+.radio {
+  input + label:before {
+    @include border-radius(10px);
+  }
+
+  input:checked + label:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 10px;
+    height: 10px;
+    top: 0;
+    bottom: 0;
+    left: 5px;
+    margin: auto;
+    background: $orange;
+    @include border-radius(10px);
+  }
+}
+
+h4 {
+  .checkbox {
+    margin-left: 63px;
+
+    > input + label {
+      padding-top: 0 !important;
+      padding-left: 30px;
+      height: 40px;
+      line-height: 40px;
+      color: $black;
+      display: block;
+      font-size: 16px;
+      font-weight: 600;
+    }
+  }
+}

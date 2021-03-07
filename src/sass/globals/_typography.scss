@@ -1,0 +1,70 @@
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+
+  > * {
+    vertical-align: baseline;
+  }
+  
+}
+
+h1 {
+  font-size: 36px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+h4 {
+  font-size: 20px;
+
+  &.header {
+    color: $tree;
+    > .action {
+      float: right;
+      font-size: 16px;
+      font-weight: 400;
+      padding-right: 20px;
+      text-decoration: underline;
+      line-height: 24px;
+    }
+  }
+}
+
+h5 {
+  font-size: 18px;
+}
+
+h6 {
+  font-size: 16px;
+}
+
+small {
+  font-size: 13px;
+}
+
+.link,
+a.link {
+  color: $link;
+  cursor: pointer;
+}
+
+a.link.disabled {
+  color: $dark-gray;
+  text-decoration: none !important;
+}
+
+.body-sm {
+  font-size: 15px;
+}
+
+@media screen and (max-width: 768px) {
+  html, body {
+    font-size: 15px;
+  }
+}

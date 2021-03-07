@@ -1,0 +1,331 @@
+
+span.arrow {
+  position: relative;
+  margin: 0 15px;
+  display: inline-block;
+  text-align: right;
+  width: 12px;
+  &:before {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 10px;
+    height: 3px;
+    background: $red;
+  }
+}
+
+.list {
+  &.video {
+    padding: 0px 20px;
+    .item {
+      display: flex;
+      padding: 10px 0;
+      
+      &:not(:last-child) {
+        border-bottom: 1px dotted $light-gray;
+      }
+
+      .content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding: 0 10px;
+        .main {
+          flex: 1;
+        }
+        .action {
+          padding: 10px 0;
+
+          > * {
+            margin: 0 10px 0 0;
+          }
+        }
+        .title {
+          margin: 0 0 10px;
+          line-height: 1.2;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          max-height: 38px;
+        }
+      }
+      .image {
+        position: relative;
+        width: 160px;
+        height: 90px;
+        overflow: hidden;
+        background: #000;
+        @include border-radius(4px);
+  
+        img {
+          position: absolute;
+          width: auto;
+          height: 100%;
+          left: -100%;
+          right: -100%;
+          top: -100%;
+          bottom: -100%;
+          margin: auto;
+          opacity: .8;
+        }
+
+        i {
+          position: absolute;
+          color: #FFF;
+          font-size: 40px;
+          width: 40px;
+          height: 40px;
+          z-index: 9;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+        }
+      }
+  
+    }
+  }
+
+  &.group {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -17px;
+    margin-right: -17px;
+
+    .item {
+      position: relative;
+      display: flex;
+      width: calc(25% - 34px);
+      margin-left: 17px;
+      margin-right: 17px;
+      margin-bottom: 20px !important;
+      border: 1px solid $light-gray;
+      padding: 25px 10px 25px 20px;
+      background: #FFF;
+      margin-bottom: 10px;
+      @include border-radius(8px);
+      @include box-shadow(0px 2px 6px 0 transparentize($tree, .8));
+      align-items: center;
+      align-content: center;
+      
+      .no {
+        position: relative;
+        display: flex;
+        width: 50px;
+        text-align: center;
+        border-right: 1px solid $border-gray;
+        padding: 10px 20px 10px 10px;
+      }
+      .name {
+        padding-left: 20px;
+        flex: 1;
+        padding: 0;
+        word-break: break-all;
+      }
+      .action {
+        padding-left: 20px;
+      }
+
+      .remove {
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        line-height: 22px;
+        top: -10px;
+        right: -10px;
+        text-align: center;
+        color: #FFF;
+        background: $dark-gray;
+        border: 2px solid #FFF;
+        @include border-radius(12px);
+        @include box-shadow(0 0 4px 0 rgba(0,0,0,.2));
+      }
+    }
+  }
+
+  &.inline {
+    .item {
+      display: inline-block;
+      margin-right: 20px;
+      margin-bottom: 10px;
+
+      .tag-box {
+        display: inline-block;
+        width: 22px;
+        height: 22px;
+        font-size: 14px;
+        margin-bottom: 2px;
+        line-height: 22px;
+        margin-right: 3px;
+        text-align: center;
+        font-weight: 700;
+        color: $black;
+        background: $bg-gray;
+        @include border-radius(2px);
+      }
+    }
+
+    .tag-box {
+      float: left;
+      display: inline-block;
+      width: 22px;
+      height: 22px;
+      font-size: 14px;
+      font-weight: 400;
+      margin-bottom: 2px;
+      line-height: 22px;
+      margin-right: 3px;
+      text-align: center;
+      color: $light-gray;
+      background: $border-gray;
+      @include border-radius(2px);
+
+      &.active {
+        font-weight: 700;
+        color: $black;
+        background: $bg-gray;
+      }
+    }
+  }
+
+  &.news {
+    a.item {
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      > * {
+        align-self: center;
+        align-content: center;
+      }
+      .title {
+        // flex: 1;
+        width: 60%;
+        // margin-right: 35px;
+        line-height: 1.3;
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+      .date {
+        color: $tree;
+        font-size: 13px;
+        align-content: center;
+        align-self: center;
+        margin-right: 5px;
+      }
+      .link {
+        width: 50px;
+        text-align: right;
+      }
+      &:nth-child(2n) {
+        background: $border-gray;
+      }
+    }
+  }
+
+  &.recommand {
+    margin-top: 30px;
+    .item {
+      position: relative;
+      display: flex;
+      padding: 14px 20px;
+      
+      &:active,
+      &.selected {
+        background: #fdeddc;
+
+        &:after {
+          content: "\e913";
+          position: absolute;
+          font-family: 'icomoon';
+          color: $orange;
+          top: 0;
+          bottom: 0;
+          right: 20px;
+          width: 20px;
+          height: 20px;
+          margin: auto;
+          text-align: center;
+          line-height: 20px;
+          font-size: 20px;
+        }
+      }
+    }
+  }
+
+  .item {
+    h3 {
+      margin: 0;
+    }
+  }
+}
+
+.item.update-info {
+  padding-top: 9px;
+  padding-bottom: 9px;
+  &.is-update {
+    background: rgba(245, 136, 24, .15) !important;
+  }
+  .label.red {
+    font-size: 11px;
+    color: #FFF;
+    padding: 2px 13px;
+    background: $red;
+    @include border-radius(2px);
+  }
+
+  .item-content {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    .content {
+      flex: 1;
+      align-content: center;
+      align-items: center;
+    }
+  }
+
+  span.text {
+    padding: 0 !important;
+    margin: 0 !important;
+    display: inline-block !important;
+  }
+}
+
+.item {
+  padding: 7px 0;
+
+  .label {
+    text-align: right;
+    font-weight: bold;
+    padding-right: 0;
+  }
+}
+
+.sale-item {
+  padding: 10px 0;
+  .icon-check {
+    font-size: 20px;
+  }
+  .icon-close {
+    color: $red;
+    font-size: 24px;
+  }
+  i[class*="icon-"] {
+    width: 24px;
+    text-align: center;
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+  .text {
+    vertical-align: middle;
+  }
+}

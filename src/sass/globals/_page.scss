@@ -1,0 +1,644 @@
+
+
+#app.manager {
+  .tags {
+    .tag {
+      display: inline-block;
+      vertical-align: middle;
+      border-radius: 4px;
+      padding: 4px 10px;
+      background: #e0e1e3;
+      margin-left: 10px;
+    }
+  }
+
+  #gmap {
+    display: block;
+    height: 600px;
+    border: 1px solid #979797;
+  }
+
+  .breadcrumb {
+    margin-bottom: 20px;
+
+    label {
+      height: 30px;
+      line-height: 30px;
+    }
+
+    .breadcrumb-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      li {
+        margin-right: 5px;
+        display: inline-block;
+        position: relative;
+
+        &:not(:first-child)::before,
+        &:not(:first-child)::after {
+          content: "";
+          position: absolute;
+          border-left: 10px solid #fff;
+          border-top: 15px solid transparent;
+          border-bottom: 15px solid transparent;
+          border-right: 10px solid transparent;
+          left: 0px;
+          z-index: 1;
+        }
+
+        &:not(:first-child)::after {
+          left: -5px;
+          z-index: 2;
+          border-left-color: #e5f6ec;
+        }
+
+        &.active a {
+          color: #fff;
+          background: #048f3a;
+        }
+
+        &.active a::after {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 0;
+          border-left: 10px solid #048f3a;
+          border-top: 15px solid transparent;
+          border-bottom: 15px solid transparent;
+          border-right: 10px solid transparent;
+          right: -20px;
+          z-index: 1;
+        }
+        &.active + li::after {
+          border-left-color: #048f3a;
+        }
+      }
+      li > a {
+        position: relative;
+        display: inline-block;
+        height: 30px;
+        line-height: 30px;
+        padding: 0px 10px 0px 20px;
+        color: #048f3a;
+        background: #e5f6ec;
+        font-weight: 500;
+        border-radius: 4px 0 0 4px;
+      }
+    }
+  }
+
+  .container {
+    min-width: 860px;
+  }
+
+  @media (min-width: 768px) {
+    .container {
+        max-width: 100px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+      .container {
+          max-width: 1028px;
+      }
+  }
+
+  .container-fluid {
+    padding-left: 15px;
+    padding-right: 15px;
+    min-width: 960px;
+  }
+
+  .dial-form label .text-orange {
+    color: #f58818;
+  }
+
+  .tab-header ul.nav.nav-tabs > a {
+    padding: 9px 15px !important;
+  }
+  .navbar ul.navbar-nav > li.nav-item {
+    display: flex;
+    vertical-align: middle;
+    > a {
+      vertical-align: middle;
+      align-self: center;
+      margin: 0;
+    }
+
+    .btn.btn-user {
+      margin-left: 10px;
+    }
+  }
+}
+
+#app.page-customer {
+  > main {
+    padding-top: 60px;
+  }
+}
+
+.page-overview {
+  background: #fff;
+
+  .overview {
+    -webkit-column-count: 4;
+    -moz-column-count: 4;
+    column-count: 4;
+    -webkit-column-gap: 20px;
+    -moz-column-gap: 20px;
+    column-gap: 20px;
+    break-inside: avoid;
+
+    .list {
+      margin-bottom: 20px;
+      break-inside: avoid;
+      h4 {
+        margin-top: 0;
+      }
+      .item {
+        display: block;
+        padding: 10px 0;
+      }
+    }
+  }
+}
+
+.page-recommand,
+.page-insurance-check {
+  main {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    .iframe-container {
+      position: relative;
+      flex: 1;
+      background: #fff;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+      iframe {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+      }
+    }
+    .search {
+      min-width: 960px;
+    }
+  }
+}
+
+.page-member,
+.page-group,
+.page-recommand,
+.page-insurance-check,
+.page-business {
+  section.search {
+    padding-top: 20px;
+  }
+}
+
+.page-search-filter {
+  h3 {
+    margin: 40px 0 20px;
+  }
+  .panel {
+    text-align: left;
+    flex-direction: column;
+  }
+}
+
+.page-customer-create {
+  form.form {
+    input.form-control.form-control-inline {
+      width: 140px;
+    }
+    select.form-control.form-control-inline {
+      width: 80px;
+    }
+  }
+}
+
+#app main.login-panel {
+  padding-top: 40px;
+}
+
+div[class*="page-customer-detail"] {
+  .name-block {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    + .link {
+      flex: 1;
+      white-space: nowrap;
+    }
+  }
+
+  #merge-table .arrow {
+    float: left;
+    margin-left: -14px;
+  }
+
+  .insurance-overview {
+    border: 2px solid $primary;
+    .row {
+      margin: 0;
+      .text-red,
+      .text-red * {
+        color: #de4054 !important;
+      }
+    }
+    .col-6 {
+      padding: 0;
+      display: flex;
+
+      &.is-select {
+        background: #e5f6ec;
+      }
+
+      > * {
+        padding: 5px 10px;
+        text-align: right;
+      }
+      .text {
+        flex: 1;
+        box-shadow: 0 1px 0 0 #c2c4c7;
+      }
+      .title {
+        width: 60%;
+        color: $tree;
+        margin-top: 1px;
+        box-shadow: 0 0 0 1px $tree;
+      }
+    }
+  }
+
+  .radar-container {
+    border: 1px solid #c2c4c7;
+    padding: 20px 40px;
+    margin-bottom: 0;
+    @include border-radius(0px);
+
+    .list {
+      display: block;
+      @include box-shadow(0px 2px 6px 0px transparentize($tree, 0.8));
+      .item {
+        display: block;
+        padding: 10px 20px;
+        color: $primary;
+        background: #fff;
+
+        &:nth-child(2n) {
+          background: $border-gray;
+        }
+      }
+    }
+  }
+
+  .insurance-editor {
+    h4 {
+      margin-bottom: 20px;
+      margin-top: 0px;
+    }
+
+    .new-insurance h4 {
+      margin-bottom: 0px;
+    }
+  }
+
+  .record-control {
+    .search-container {
+      position: relative;
+      width: 200px;
+      float: right;
+
+      button.btn {
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+    }
+  }
+
+  .record-container .record-item {
+    margin-bottom: 20px;
+    display: flex;
+
+    .record-action {
+      margin-right: -50px;
+    }
+    .record-table {
+      flex: 1;
+      th + td {
+        border-left: 1px dotted #53c480;
+      }
+      td {
+        border-bottom: 1px solid $light-gray;
+      }
+    }
+
+    .content.empty {
+      display: flex;
+      align-content: center;
+      align-items: center;
+      padding: 0;
+      color: $gray;
+      font-size: 16px !important;
+    }
+
+    .content {
+      color: $black;
+      flex: 1;
+
+      h5 {
+        margin-top: 0;
+        font-weight: 600;
+      }
+    }
+
+    .list.badgets {
+      width: 100%;
+      margin: 10px 0 0;
+    }
+    h5 {
+      margin: 5px 0 5px;
+    }
+  }
+  .VueCarousel {
+    position: relative;
+    padding-left: 50px;
+    padding-right: 50px;
+
+    .VueCarousel-slide .item {
+      display: block;
+      text-align: center;
+      width: 100%;
+      font-size: 20px;
+      padding: 4px 0;
+      border: 1px solid transparent;
+      background: none;
+      @include border-radius(4px);
+      &.active {
+        color: #fff;
+        border: 1px solid #c66f1c;
+        background: $orange;
+      }
+    }
+
+    .VueCarousel-navigation > button.VueCarousel-navigation-button {
+      width: 40px;
+      height: 40px;
+      color: $orange;
+      font-size: 20px;
+    }
+
+    .VueCarousel-navigation-prev {
+      transform: translateY(-50%);
+    }
+    .VueCarousel-navigation-next {
+      transform: translateY(-50%);
+    }
+  }
+}
+
+.page-search-result,
+.page-search-empty,
+.page-index {
+  section.search {
+    padding: 20px 0;
+  }
+
+  .search-checkbox {
+    margin: 20px 0;
+    label {
+      padding-top: 10px;
+    }
+  }
+  .score-progress {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    justify-content: space-between;
+    .progress {
+      display: block;
+      width: 90px;
+      height: 90px;
+      @include border-radius(45px);
+      .progressbar-text {
+        font-size: 20px;
+        width: 100%;
+      }
+    }
+    #progress-p {
+      background: #e3f8f9;
+    }
+    #progress-unit {
+      background: #f8f2fc;
+    }
+    #progress-fyc {
+      background: #effbe6;
+    }
+    .score-item {
+      vertical-align: top;
+      width: 30%;
+      text-align: center;
+      margin: 0;
+      .progress {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+
+  .score-info {
+    display: flex;
+    align-items: center;
+    margin-top: 16px;
+
+    .label {
+      color: $tree;
+    }
+
+    > div {
+      padding: 0 10px;
+      align-content: center;
+      align-self: center;
+    }
+
+    h6 {
+      margin: 4px 0 0;
+    }
+  }
+
+  .dashboard {
+
+    .board {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+      min-height: 1px;
+      .board-head {
+        min-height: 1px;
+        padding-top: 16px;
+        padding-bottom: 16px;
+        .header {
+          margin: 0;
+          .text {
+            margin-left: 10px;
+          }
+          .text,
+          [class^="icon-"],
+          [class*=" icon-"] {
+            vertical-align: middle;
+          }
+        }
+      }
+      .board-body {
+        // flex: 1;
+        min-height: 1px;
+        background: $white;
+        padding: 10px 0;
+        @include border-radius(4px);
+        @include box-shadow(0 2px 6px 0 rgba(2, 122, 57, 0.2));
+        &.with-button-grid {
+          padding: 20px 25px;
+        }
+        &.score-content {
+          padding-left: 30px;
+          padding-right: 30px;
+        }
+        .list.news {
+          .title {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+.page-login {
+  background: $primary url(/crm/assets/common/img_background_pattern.jpg)
+    no-repeat;
+  background-size: cover;
+
+  .login-img {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 50px;
+    // bottom: 0;
+  }
+
+  #cathay-logo {
+    width: 110px;
+    height: 26px;
+  }
+
+  form.form {
+    .action {
+      text-align: center;
+      padding-bottom: 20px;
+      button[type="submit"] {
+        margin-bottom: 27px;
+      }
+    }
+  }
+
+  .login-panel {
+    position: absolute;
+    padding: 20px 40px 20px 30px;
+    width: 100%;
+    max-width: 800px;
+    height: 480px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    @include border-radius(8px);
+    background: #fff url(/crm/assets/login/img_login_wave@2x.png) center bottom
+      repeat-x;
+    background-size: 800px 200px;
+    @include box-shadow(0 2px 10px 0 rgba(0, 0, 0, 0.1));
+
+    .title {
+      margin-bottom: 20px;
+    }
+
+    .title.mobile {
+      display: none;
+    }
+    .title.desktop {
+      display: block;
+    }
+    form.form label {
+      padding-top: 0;
+    }
+
+    @media screen and (max-width: 768px) {
+      width: calc(100% - 30px);
+      height: 90vh;
+      margin-top: 15px;
+
+      #cathay-logo {
+        display: none;
+      }
+
+      .title.mobile {
+        display: block;
+      }
+      .title.desktop {
+        display: none;
+      }
+    }
+  }
+}
+
+.page-guideline {
+  .color-box {
+    display: inline-block;
+    text-align: center;
+    margin-bottom: 30px;
+    .box {
+      border: 1px solid $border-gray;
+      display: block;
+      margin: 0 auto 15px;
+      width: 60px;
+      height: 60px;
+      border-radius: 30px 30px;
+    }
+  }
+
+  nav {
+    > a {
+      display: block;
+      padding: 10px 15px;
+      color: $dark-gray;
+      text-decoration: none;
+      border-left: 4px solid $light-gray;
+      &:hover,
+      &:focus {
+        color: $black;
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 767px) {
+  #app.page-login {
+    > main {
+      padding-top: 20px;
+    }
+  }
+}
